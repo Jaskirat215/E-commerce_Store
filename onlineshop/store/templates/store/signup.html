@@ -1,0 +1,66 @@
+{% extends 'store/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<center>
+    <div class="container mx-auto">
+        <table width=30% cellpadding=10>
+            <tr>
+                <td colspan=2 align=center><h1 class="mt-4 mb-4">Sign Up</h1></td>
+            </tr>
+            {% if messages %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    
+           
+        <form method="post">
+            {% csrf_token %}
+            <tr>
+                <div class="form-group">
+                <td>  <label for="{{ user_form.username.id_for_label }}">Username</label></td>
+                <td> {{ user_form.username }}</td>
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <td> <label for="{{ user_form.password.id_for_label }}">Password</label></td>
+                <td>  {{ user_form.password }}</td>
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <td>  <label for="{{ customer_form.name.id_for_label }}">Name</label></td>
+                <td>  {{ customer_form.name }}</td>
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <td>  <label for="{{ customer_form.email.id_for_label }}">Email</label></td>
+                <td>  {{ customer_form.email }}</td>
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <td>  <label for="{{ customer_form.phone_no.id_for_label }}">Phone Number</label></td>
+                <td>  {{ customer_form.phone_no }}</td>
+            </div>
+            </tr> 
+               
+           <tr>
+            <td colspan=2 align=center>  <button type="submit" class="btn btn-primary">Sign Up</button></td>
+           </tr>  
+          
+        </form>
+    </table>
+    </div>
+    </center>
+   
+
+{% endblock %}

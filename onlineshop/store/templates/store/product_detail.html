@@ -1,0 +1,59 @@
+{% extends 'store/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<main class="pt-2">
+    <div class="container" style="max-width: 1000px">
+      <div class="row g-3">
+       
+        <div class="col-12 d-flex justify-content-between"></div>
+  
+        <div class="col-md-5 ps-3 col-lg-5 order-md-last p-0 order-1">
+          <div class="d-grid gap-2 mt-5 pt-3">
+            <div>{{product.title}}</div>
+            <div class="d-flex d-flex-inline justify-content-between">
+              <div>
+                <p class="text-muted">{{product.description}}</p>
+                <span class="h3">Rs. {{product.price}}</span>
+                <p class="text-muted">includes tax</p>
+              </div>
+              
+            </div>
+            <hr />
+            <button
+            data-product={{product.id}} data-action="add"
+              type="button"
+              id="add-button"
+              value=""
+              class="btn btn-success fw500 update-cart"
+            >
+              Add to Cart
+            </button>
+            
+          </div>
+        </div>
+  
+        <div class="col-md-7 col-lg-7 p-0">
+          <div class="card mb-3 border-0">
+            <div class="row g-0">
+              <div class="col-md-12">
+                <div class="card-body p-1">
+                  <h1 class="mb-0 h2 pe-4 pb-4">{{product.category}}</h1>
+                  <div class="bg-light">
+                    <img
+                      class="img-fluid mx-auto d-block"
+                      alt="Responsive image"
+                      src="{{product.imageURL}}"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
